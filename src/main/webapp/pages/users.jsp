@@ -7,7 +7,7 @@
 </head>
 <body>
 <table border="true">
-    <p>Go to <a href="index.jsp">index.jsp</a></p>
+    <p>Go to <a href="index.html">index.jsp</a></p>
     <tr>
         <td>Name</td>
         <td>Surname</td>

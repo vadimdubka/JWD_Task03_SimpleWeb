@@ -23,7 +23,7 @@ public class ConfigConstant {
     /**
      * Common JSP pages paths
      */
-    public static final String PAGE_INDEX = "/index.jsp";
+    public static final String PAGE_INDEX = "/index.html";
     public static final String PAGE_USERS = "/pages/users.jsp";
     
     private ConfigConstant() {
