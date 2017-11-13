@@ -1,11 +1,11 @@
-package com.dubatovka.simplewebapp.command.impl;
+package com.dubatovka.simplewebapp.controller.command.impl;
 
-import com.dubatovka.simplewebapp.command.PageNavigator;
+import com.dubatovka.simplewebapp.controller.command.PageNavigator;
 import com.dubatovka.simplewebapp.entity.User;
-import com.dubatovka.simplewebapp.manager.ConfigConstant;
+import com.dubatovka.simplewebapp.controller.ConfigConstant;
 import com.dubatovka.simplewebapp.service.ServiceFactory;
 import com.dubatovka.simplewebapp.service.UserService;
-import com.dubatovka.simplewebapp.command.Command;
+import com.dubatovka.simplewebapp.controller.command.Command;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;

@@ -16,7 +16,7 @@ public class UserDAOImpl extends UserDAO {
     /**
      * Selects all users.
      */
-    private static final String SQL_SELECT_ALL_USERS = "SELECT * FROM user ORDER BY first_name";
+    private static final String SQL_SELECT_ALL_USERS = "SELECT * FROM user ORDER BY last_name";
     /**
      * Selects definite users by first and last name.
      */
@@ -27,7 +27,7 @@ public class UserDAOImpl extends UserDAO {
     
     @Override
     public List<User> readUsers() throws DAOException {
-        List<User> userList = new ArrayList<>();
+        List<User> userList;
         try (Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(SQL_SELECT_ALL_USERS);
             userList = createUserList(resultSet);
@@ -39,8 +39,8 @@ public class UserDAOImpl extends UserDAO {
     
     @Override
     public List<User> readUsers(String fName, String lName) throws DAOException {
-        List<User> users = new ArrayList<>();
-        ResultSet resultSet = null;
+        List<User> users;
+        ResultSet resultSet;
         try (PreparedStatement prepStatement = connection.prepareStatement(SQL_SELECT_USERS_BY_FIRST_AND_LAST_NAME)) {
             prepStatement.setString(1, fName);
             prepStatement.setString(2, lName);

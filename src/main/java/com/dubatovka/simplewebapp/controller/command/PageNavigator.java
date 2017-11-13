@@ -1,4 +1,8 @@
-package com.dubatovka.simplewebapp.command;
+package com.dubatovka.simplewebapp.controller.command;
+
+import static com.dubatovka.simplewebapp.controller.ConfigConstant.FORWARD;
+import static com.dubatovka.simplewebapp.controller.ConfigConstant.PAGE_INDEX;
+import static com.dubatovka.simplewebapp.controller.ConfigConstant.PAGE_USERS;
 
 public enum PageNavigator {
     FORWARD_PAGE_INDEX(PAGE_INDEX, FORWARD),

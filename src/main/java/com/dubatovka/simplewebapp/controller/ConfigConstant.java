@@ -1,4 +1,4 @@
-package com.dubatovka.simplewebapp.manager;
+package com.dubatovka.simplewebapp.controller;
 
 public class ConfigConstant {
     

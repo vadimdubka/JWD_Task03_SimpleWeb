@@ -1,34 +1,61 @@
 package com.dubatovka.simplewebapp.dao;
 
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
 
 /**
  * Create database connection
  */
 
 public class DBConnection {
+    private static final Logger LOGGER = LogManager.getLogger(DBConnection.class);
+    
+    private static final String DB_PROPERTIES = "database";
+    
+    /**
+     * Database property-file keys.
+     */
+    private static final String DB_DRIVER = "driver";
+    private static final String DB_USER = "user";
+    private static final String DB_PASSWORD = "password";
+    private static final String DB_URL = "url";
+    
     private static Connection connection;
     
     private DBConnection() {
     }
     
     public static Connection getConnection() {
+        ResourceBundle resourceBundle;
+        try {
+            resourceBundle = ResourceBundle.getBundle(DB_PROPERTIES);
+        } catch (MissingResourceException e) {
+            LOGGER.log(Level.ERROR, "Invalid resource path to database *.properties file");
+            throw new RuntimeException();
+        }
+        String driver = resourceBundle.getString(DB_DRIVER);
+        String user = resourceBundle.getString(DB_USER);
+        String password = resourceBundle.getString(DB_PASSWORD);
+        String url = resourceBundle.getString(DB_URL);
+        
         try {
             if (connection == null || connection.isClosed()) {
-                String url = "jdbc:mysql://localhost:3306/simpleweb";
-                String user = "root";
-                String password = "int1984";
-                
-                Class.forName("com.mysql.jdbc.Driver");
-                
+                Class.forName(driver);
                 connection = DriverManager.getConnection(url, user, password);
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.FATAL, e + " Driver wasn't found.");
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            LOGGER.log(Level.FATAL, e + " Connection initializing was interrupted.");
+            throw new RuntimeException(e);
         }
         return connection;
     }

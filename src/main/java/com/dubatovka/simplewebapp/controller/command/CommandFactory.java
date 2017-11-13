@@ -1,9 +1,9 @@
-package com.dubatovka.simplewebapp.command;
+package com.dubatovka.simplewebapp.controller.command;
 
-import com.dubatovka.simplewebapp.command.impl.GoToIndexCommand;
-import com.dubatovka.simplewebapp.command.impl.ShowAllUsersCommand;
-import com.dubatovka.simplewebapp.command.impl.ShowUsersByCriteriaCommand;
-import com.dubatovka.simplewebapp.manager.ConfigConstant;
+import com.dubatovka.simplewebapp.controller.command.impl.GoToIndexCommand;
+import com.dubatovka.simplewebapp.controller.command.impl.ShowAllUsersCommand;
+import com.dubatovka.simplewebapp.controller.command.impl.ShowUsersByCriteriaCommand;
+import com.dubatovka.simplewebapp.controller.ConfigConstant;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,7 +24,7 @@ public class CommandFactory {
     private enum CommandType {
         SHOW_ALL_USERS,
         SHOW_USERS_BY_CRITERIA,
-        GO_TO_INDEX;
+        GO_TO_INDEX
     }
     
     private CommandFactory() {

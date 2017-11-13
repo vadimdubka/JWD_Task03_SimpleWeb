@@ -1,8 +1,8 @@
 package com.dubatovka.simplewebapp.controller;
 
-import com.dubatovka.simplewebapp.command.Command;
-import com.dubatovka.simplewebapp.command.CommandFactory;
-import com.dubatovka.simplewebapp.command.PageNavigator;
+import com.dubatovka.simplewebapp.controller.command.Command;
+import com.dubatovka.simplewebapp.controller.command.CommandFactory;
+import com.dubatovka.simplewebapp.controller.command.PageNavigator;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static com.dubatovka.simplewebapp.manager.ConfigConstant.FORWARD;
-import static com.dubatovka.simplewebapp.manager.ConfigConstant.PAGE_INDEX;
-import static com.dubatovka.simplewebapp.manager.ConfigConstant.REDIRECT;
+import static com.dubatovka.simplewebapp.controller.ConfigConstant.FORWARD;
+import static com.dubatovka.simplewebapp.controller.ConfigConstant.PAGE_INDEX;
+import static com.dubatovka.simplewebapp.controller.ConfigConstant.REDIRECT;
 
 public class MainController extends HttpServlet {
     

@@ -50,4 +50,40 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        
+        User user = (User) o;
+        
+        if (id != user.id) return false;
+        if (fName != null ? !fName.equals(user.fName) : user.fName != null) return false;
+        if (lName != null ? !lName.equals(user.lName) : user.lName != null) return false;
+        if (phone != null ? !phone.equals(user.phone) : user.phone != null) return false;
+        return email != null ? email.equals(user.email) : user.email == null;
+    
+    }
+    
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (fName != null ? fName.hashCode() : 0);
+        result = 31 * result + (lName != null ? lName.hashCode() : 0);
+        result = 31 * result + (phone != null ? phone.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        return result;
+    }
+    
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", fName='" + fName + '\'' +
+                ", lName='" + lName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

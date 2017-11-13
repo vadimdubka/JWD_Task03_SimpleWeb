@@ -1,7 +1,7 @@
-package com.dubatovka.simplewebapp.command.impl;
+package com.dubatovka.simplewebapp.controller.command.impl;
 
-import com.dubatovka.simplewebapp.command.PageNavigator;
-import com.dubatovka.simplewebapp.command.Command;
+import com.dubatovka.simplewebapp.controller.command.PageNavigator;
+import com.dubatovka.simplewebapp.controller.command.Command;
 
 import javax.servlet.http.HttpServletRequest;
 
